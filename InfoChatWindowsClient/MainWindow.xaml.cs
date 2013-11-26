@@ -92,9 +92,6 @@ namespace InfoChatWindowsClient {
 
             SpContainer.Children.Add(border);
             MainScrollViewer.ScrollToBottom();
-
-			//Save message
-			SaveToXML("received", text.Substring(0, 12), text.Substring(12));
         }
 
         public void SendMessage(string message) {
@@ -117,9 +114,6 @@ namespace InfoChatWindowsClient {
 
 			//Show message to user
             AddSendedMessage(message);
-
-			//Save message
-			SaveToXML("sended", Properties.Settings.Default.Username, message);
         }
 
         //////////////////////////////////////
@@ -177,29 +171,6 @@ namespace InfoChatWindowsClient {
                 sock.Close();
             }
         }
-
-	    public void SaveToXML(string type, string username, string body){
-			var objSetting = new XmlWriterSettings();
-			objSetting.Indent = true;
-			objSetting.NewLineOnAttributes = true;
-
-			var sb = new System.Text.StringBuilder();
-
-			string fileName = @"c:\Temp\chat.xml";//System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"chat.txt");
-			using (XmlWriter writer = XmlWriter.Create(sb, objSetting)) {
-				writer.WriteStartDocument();
-					writer.WriteStartElement("Messages");
-						writer.WriteStartElement("Message");
-							writer.WriteElementString("Type", type); //<-- DA METTERE COME ATTIRIBUTO DI MESSAGE O TOGLIERE, VALUTARE!
-							writer.WriteElementString("Username", username);
-							writer.WriteElementString("Body", body);
-						writer.WriteEndElement();
-					writer.WriteEndElement();
-				writer.WriteEndDocument();
-			}
-
-			System.IO.File.WriteAllText(@"c:\Temp\chat.xml", sb.ToString());
-	    }
         ///////////////////////////////////////
 
         #region Window events methods
