@@ -32,6 +32,8 @@ namespace InfoChatWindowsClient {
 
 			//Window property
 	        Background = new SolidColorBrush(Color.FromArgb(Properties.Settings.Default.Opacity, 255, 255, 255));
+			Width = Properties.Settings.Default.xSize;
+	        Height = Properties.Settings.Default.ySize;
 
 			//Receiver backgroud task
             var backgroundDBTask = Task.Factory.StartNew(ListenMessages, TaskCreationOptions.LongRunning);
@@ -165,7 +167,7 @@ namespace InfoChatWindowsClient {
                 var stringData = Encoding.Unicode.GetString(data, 0, recv);
 
 				//Show received message only if the mac addr is different from mine
-                //if (stringData.Substring(0, 12) != GetMacAddress())
+                if (stringData.Substring(0, 12) != GetMacAddress())
                     Dispatcher.BeginInvoke(new Action(() => AddReceivedMessage(stringData.Substring(12))));
                 sock.Close();
             }
@@ -204,5 +206,11 @@ namespace InfoChatWindowsClient {
         }
 
         #endregion
+
+		private void Window_SizeChanged(object sender, SizeChangedEventArgs e) {
+			Properties.Settings.Default.xSize = (int)Width;
+			Properties.Settings.Default.ySize = (int)Height;
+			Properties.Settings.Default.Save();
+		}
     }
 }

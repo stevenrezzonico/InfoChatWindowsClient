@@ -58,5 +58,29 @@ namespace InfoChatWindowsClient.Properties {
                 this["Opacity"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("350")]
+        public int xSize {
+            get {
+                return ((int)(this["xSize"]));
+            }
+            set {
+                this["xSize"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("600")]
+        public int ySize {
+            get {
+                return ((int)(this["ySize"]));
+            }
+            set {
+                this["ySize"] = value;
+            }
+        }
     }
 }

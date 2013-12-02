@@ -1,13 +1,12 @@
 ﻿<Window x:Class="InfoChatWindowsClient.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Width="400"
         Title="InfoChat"
         ResizeMode="CanResizeWithGrip" 
         AllowsTransparency="True"
         WindowStyle="None" 
         MinHeight="350" MinWidth="250" 
-        WindowStartupLocation="CenterScreen" 
+        WindowStartupLocation="CenterScreen" SizeChanged="Window_SizeChanged" 
         >
 
     <!-- Style -->

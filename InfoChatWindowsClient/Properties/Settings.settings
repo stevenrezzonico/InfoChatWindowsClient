@@ -11,5 +11,11 @@
     <Setting Name="Opacity" Type="System.Byte" Scope="User">
       <Value Profile="(Default)">255</Value>
     </Setting>
+    <Setting Name="xSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">350</Value>
+    </Setting>
+    <Setting Name="ySize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">600</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
